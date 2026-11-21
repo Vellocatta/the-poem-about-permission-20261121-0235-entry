@@ -15,6 +15,8 @@ POEM = (
 
 
 def main() -> None:
+    # The gate requires 1-280 Unicode code points, not only whitespace.
+    assert 1 <= len(POEM) <= 280 and POEM.strip(), "poem out of gate bounds"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(POEM)
